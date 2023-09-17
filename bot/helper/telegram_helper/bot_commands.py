@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from bot import CMD_SUFFIX
+CMD_SUFFIX = ""
 
 
 class _BotCommands:
