@@ -20,7 +20,6 @@ from bot.helper.mirror_utils.download_utils.direct_downloader import add_direct_
 from bot.helper.mirror_utils.download_utils.aria2_download import add_aria2c_download
 from bot.helper.mirror_utils.download_utils.direct_link_generator import direct_link_generator
 from bot.helper.mirror_utils.download_utils.gd_download import add_gd_download
-from bot.helper.mirror_utils.download_utils.mega_download import add_mega_download
 from bot.helper.mirror_utils.download_utils.qbit_download import add_qb_torrent
 from bot.helper.mirror_utils.download_utils.rclone_download import add_rclone_download
 from bot.helper.mirror_utils.download_utils.telegram_download import TelegramDownloadHelper
@@ -348,7 +347,10 @@ async def _mirror_leech(client, message, isQbit=False, isLeech=False, sameDir=No
         else:
             await add_gd_download(link, path, listener, name)
     elif is_mega_link(link):
-        await add_mega_download(link, f'{path}/', listener, name)
+        gmsg = f"Mega Dl Not Supported!"
+        reply_message = await sendMessage(message, gmsg)
+        await auto_delete_message(message, reply_message)
+        await delete_links(message)
     elif isQbit:
         await add_qb_torrent(link, path, listener, ratio, seed_time)
     else:
