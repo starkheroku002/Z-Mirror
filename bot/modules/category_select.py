@@ -104,5 +104,5 @@ async def confirm_category(client, query):
     cached_dict[msg_id][1] = categories_dict[data[3]].get('index_link')
 
 
-bot.add_handler(MessageHandler(change_category, filters=command(BotCommands.CategorySelect) & CustomFilters.authorized))
+bot.add_handler(MessageHandler(change_category, filters=command(BotCommands.CategorySelect)))
 bot.add_handler(CallbackQueryHandler(confirm_category, filters=regex("^scat")))
