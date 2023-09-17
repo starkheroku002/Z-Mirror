@@ -322,4 +322,4 @@ async def clone(client, message):
         await gdcloneNode(message, link, listener)
 
 
-bot.add_handler(MessageHandler(clone, filters=command(BotCommands.CloneCommand) & CustomFilters.authorized))
+bot.add_handler(MessageHandler(clone, filters=command(BotCommands.CloneCommand)))
