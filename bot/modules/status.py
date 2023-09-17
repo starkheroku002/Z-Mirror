@@ -90,7 +90,7 @@ def bot_sys_stats():
             extr += 1
         elif status == MirrorStatus.STATUS_SEEDING:
             seed += 1
-    bmsg = f'______Zee Bot Info______\n\n'
+    bmsg = f'______Marvel Cloud Bot Info______\n\n'
     bmsg += f'C: {cpup}% | R: {ramp}% | D: {disk}%\n\n'
     bmsg += f'T : {totl} | F : {free} | Q : {inqu}\n'
     bmsg += f'DL: {dwld} | UL: {upld} | SD: {seed}\n'
@@ -100,5 +100,5 @@ def bot_sys_stats():
 
 
 bot.add_handler(MessageHandler(mirror_status, filters=command(
-    BotCommands.StatusCommand) & CustomFilters.authorized))
+    BotCommands.StatusCommand)))
 bot.add_handler(CallbackQueryHandler(status_pages, filters=regex("^status")))
